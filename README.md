@@ -1,19 +1,18 @@
 # Withdrawal Rate Calculator
 
-An interactive historical retirement withdrawal calculator using annual real returns for:
+An interactive historical retirement withdrawal calculator using monthly real returns for:
 
 - S&P 500 total return
-- 10-year US Treasury bond total return
-- 3-month T-bills
+- Treasury-like bond returns approximated from long rates, CPI, and selected duration
 
-The calculator tests rolling historical retirement start years from 1928 through 2024. It supports adjustable portfolio size, withdrawal rate, retirement horizon up to 70 years, stock/bond allocation, and annual fees.
+The calculator tests rolling historical retirement start months from July 1923 through June 2023. It supports a simple mode for core assumptions and an advanced mode for spending rules, withdrawal timing, rebalancing cadence, bond duration, start-date filters, CAPE filters, percentile outcomes, and worst-path analysis.
 
 ## Data Source
 
-Data comes from Aswath Damodaran's NYU Stern historical returns workbook:
+Data comes from the Shiller-style S&P 500 monthly dataset mirrored by DataHub:
 
-https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html
+https://datahub.io/core/s-and-p-500
 
-The calculator uses annual real return columns from the workbook. Withdrawals happen at the start of each year and portfolios rebalance annually.
+Stock returns are month-over-month real total returns approximated from real price plus one month of real dividends. Bond returns are an approximation, not a dedicated bond total-return series.
 
 This is historical stress testing, not a forecast or financial advice.
