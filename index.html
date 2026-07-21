@@ -1,0 +1,1366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Withdrawal Rate Calculator</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:736px;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Withdrawal Rate Calculator" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Withdrawal Rate Calculator&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(--background) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: light-dark(rgb(255 255 255), rgb(24 24 24));
+  --foreground: light-dark(rgb(26 28 31), rgb(255 255 255));
+  --card: color-mix(in oklab, var(--foreground) 5%, transparent);
+  --card-foreground: var(--foreground);
+  --popover: light-dark(rgb(255 255 255), rgb(45 45 45));
+  --popover-foreground: var(--foreground);
+  --primary: light-dark(rgb(51 156 255), rgb(131 195 255));
+  --primary-foreground: light-dark(rgb(255 255 255), rgb(13 13 13));
+  --secondary: light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%));
+  --secondary-foreground: var(--foreground);
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: light-dark(
+    rgb(26 28 31 / 49.4%),
+    rgb(255 255 255 / 49.8%)
+  );
+  --accent: light-dark(rgb(229 242 255), rgb(13 39 63));
+  --accent-foreground: var(--primary);
+  --destructive: light-dark(rgb(226 85 7), rgb(255 133 73));
+  --border: light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%));
+  --input: light-dark(
+    rgb(26 28 31 / 11.8%),
+    color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+  );
+  --ring: light-dark(rgb(51 156 255), rgb(131 195 255 / 76%));
+  --font-size-base: 14px;
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: 12.5px;
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+  --color-background-primary: var(--background);
+  --color-text-primary: var(--foreground);
+  --color-border-secondary: var(--border);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--viz-font-weight-medium);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+    [aria-pressed=&quot;true&quot;],
+    [aria-selected=&quot;true&quot;],
+    .is-selected
+  ) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;withdrawal-rate-calculator&quot; class=&quot;wrc&quot;&gt;
+  &lt;style&gt;
+    #withdrawal-rate-calculator {
+      color: var(--foreground);
+      display: grid;
+      gap: 1rem;
+    }
+    #withdrawal-rate-calculator .wrc-controls {
+      display: grid;
+      gap: .75rem;
+    }
+    #withdrawal-rate-calculator .wrc-chart-wrap {
+      position: relative;
+    }
+    #withdrawal-rate-calculator .wrc-chart {
+      width: 100%;
+      min-height: 310px;
+      display: block;
+    }
+    #withdrawal-rate-calculator .wrc-path {
+      width: 100%;
+      min-height: 260px;
+      display: block;
+    }
+    #withdrawal-rate-calculator .wrc-axis,
+    #withdrawal-rate-calculator .wrc-grid {
+      stroke: var(--border);
+      stroke-width: 1;
+    }
+    #withdrawal-rate-calculator .wrc-label {
+      fill: var(--muted-foreground);
+    }
+    #withdrawal-rate-calculator .wrc-mark {
+      fill: var(--viz-series-1);
+    }
+    #withdrawal-rate-calculator .wrc-failed {
+      fill: var(--destructive);
+    }
+    #withdrawal-rate-calculator .wrc-line {
+      fill: none;
+      stroke: var(--viz-series-1);
+      stroke-width: 2;
+    }
+    #withdrawal-rate-calculator .wrc-initial {
+      stroke: var(--destructive);
+      stroke-width: 1;
+    }
+    #withdrawal-rate-calculator .wrc-tooltip {
+      position: absolute;
+      display: none;
+      pointer-events: none;
+      max-width: 220px;
+    }
+    #withdrawal-rate-calculator .wrc-tooltip.is-visible {
+      display: block;
+    }
+    #withdrawal-rate-calculator .wrc-note {
+      color: var(--muted-foreground);
+    }
+    @media (min-width: 660px) {
+      #withdrawal-rate-calculator .wrc-controls {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+    }
+  &lt;/style&gt;
+  &lt;div class=&quot;viz-grid&quot; aria-live=&quot;polite&quot;&gt;
+    &lt;div class=&quot;card viz-stat&quot;&gt;
+      &lt;div class=&quot;text-muted&quot;&gt;Historical success&lt;/div&gt;
+      &lt;div class=&quot;viz-stat-value&quot; id=&quot;wrc-success&quot;&gt;--&lt;/div&gt;
+      &lt;div class=&quot;text-small&quot; id=&quot;wrc-complete&quot;&gt;--&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;card viz-stat&quot;&gt;
+      &lt;div class=&quot;text-muted&quot;&gt;Worst start&lt;/div&gt;
+      &lt;div class=&quot;viz-stat-value&quot; id=&quot;wrc-worst-start&quot;&gt;--&lt;/div&gt;
+      &lt;div class=&quot;text-small&quot; id=&quot;wrc-worst-end&quot;&gt;--&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;card viz-stat&quot;&gt;
+      &lt;div class=&quot;text-muted&quot;&gt;Worst drawdown&lt;/div&gt;
+      &lt;div class=&quot;viz-stat-value&quot; id=&quot;wrc-drawdown&quot;&gt;--&lt;/div&gt;
+      &lt;div class=&quot;text-small&quot; id=&quot;wrc-spend&quot;&gt;--&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;viz-controls wrc-controls&quot;&gt;
+    &lt;label class=&quot;form-label&quot;&gt;Portfolio
+      &lt;input class=&quot;form-control&quot; id=&quot;wrc-portfolio&quot; type=&quot;number&quot; min=&quot;10000&quot; step=&quot;10000&quot; value=&quot;1000000&quot;&gt;
+    &lt;/label&gt;
+    &lt;label class=&quot;form-label&quot;&gt;Withdrawal rate &lt;span id=&quot;wrc-rate-label&quot;&gt;4.0%&lt;/span&gt;
+      &lt;input class=&quot;form-range&quot; id=&quot;wrc-rate&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;10&quot; step=&quot;0.1&quot; value=&quot;4&quot;&gt;
+    &lt;/label&gt;
+    &lt;label class=&quot;form-label&quot;&gt;Horizon &lt;span id=&quot;wrc-years-label&quot;&gt;30 years&lt;/span&gt;
+      &lt;input class=&quot;form-range&quot; id=&quot;wrc-years&quot; type=&quot;range&quot; min=&quot;10&quot; max=&quot;70&quot; step=&quot;1&quot; value=&quot;30&quot;&gt;
+    &lt;/label&gt;
+    &lt;label class=&quot;form-label&quot;&gt;Stock allocation &lt;span id=&quot;wrc-stock-label&quot;&gt;60%&lt;/span&gt;
+      &lt;input class=&quot;form-range&quot; id=&quot;wrc-stock&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;5&quot; value=&quot;60&quot;&gt;
+    &lt;/label&gt;
+    &lt;label class=&quot;form-label&quot;&gt;Annual fee &lt;span id=&quot;wrc-fee-label&quot;&gt;0.20%&lt;/span&gt;
+      &lt;input class=&quot;form-range&quot; id=&quot;wrc-fee&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;2&quot; step=&quot;0.05&quot; value=&quot;0.2&quot;&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;wrc-chart-wrap&quot;&gt;
+    &lt;svg class=&quot;wrc-chart&quot; id=&quot;wrc-chart&quot; role=&quot;img&quot; aria-labelledby=&quot;wrc-chart-title wrc-chart-desc&quot;&gt;
+      &lt;title id=&quot;wrc-chart-title&quot;&gt;Rolling historical retirement outcomes&lt;/title&gt;
+      &lt;desc id=&quot;wrc-chart-desc&quot;&gt;Each mark is a possible historical retirement start year and its final inflation-adjusted portfolio balance.&lt;/desc&gt;
+    &lt;/svg&gt;
+    &lt;div class=&quot;tooltip wrc-tooltip text-small&quot; id=&quot;wrc-tooltip&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;svg class=&quot;wrc-path&quot; id=&quot;wrc-path&quot; role=&quot;img&quot; aria-labelledby=&quot;wrc-path-title wrc-path-desc&quot;&gt;
+    &lt;title id=&quot;wrc-path-title&quot;&gt;Worst historical path&lt;/title&gt;
+    &lt;desc id=&quot;wrc-path-desc&quot;&gt;The inflation-adjusted portfolio balance through the worst starting year for the selected withdrawal plan.&lt;/desc&gt;
+  &lt;/svg&gt;
+  &lt;div class=&quot;text-small wrc-note&quot;&gt;Data: Aswath Damodaran, NYU Stern, Historical Returns on Stocks, Bonds and Bills, updated January 2026. Annual real returns from 1928 to 2024 are used for S&amp;amp;P 500 total return, 10-year US Treasury bond total return, and 3-month T-bills. The stock slider invests the remainder in 10-year Treasury bonds, withdrawals happen at the start of each year, and portfolios rebalance annually. This is historical stress testing, not a forecast.&lt;/div&gt;
+  &lt;script&gt;
+    (() =&gt; {
+      const annualReturns = [[1928,0.454932,0.020148,0.042856],[1929,-0.088311,0.03598,0.025602],[1930,-0.200079,0.116835,0.116932],[1931,-0.380674,0.074522,0.128213],[1932,0.018184,0.212472,0.126429],[1933,0.48846,0.010836,0.001952],[1934,-0.026634,0.06352,-0.012184],[1935,0.424871,0.014439,-0.027359],[1936,0.300585,0.035176,-0.012585],[1937,-0.371329,-0.014369,-0.025096],[1938,0.329764,0.071908,0.02924],[1939,-0.010976,0.044123,0.000458],[1940,-0.113064,0.046549,-0.006736],[1941,-0.206502,-0.108718,-0.089148],[1942,0.093014,-0.061793,-0.079699],[1943,0.214676,-0.004551,-0.025045],[1944,0.163558,0.002725,-0.018757],[1945,0.32836,0.01523,-0.018262],[1946,-0.224842,-0.127006,-0.150272],[1947,-0.033419,-0.072746,-0.075676],[1948,0.026343,-0.010102,-0.018899],[1949,0.208096,0.068809,0.032573],[1950,0.234804,-0.051945,-0.044641],[1951,0.166778,-0.05939,-0.042288],[1952,0.17266,0.015019,0.009605],[1953,-0.019427,0.033695,0.011333],[1954,0.537061,0.040635,0.016936],[1955,0.321026,-0.017046,0.013448],[1956,0.043253,-0.050889,-0.003531],[1957,-0.129797,0.037886,0.003168],[1958,0.412335,-0.037928,5.9e-05],[1959,0.101507,-0.043023,0.016278],[1960,-0.010103,0.10141,0.014921],[1961,0.257935,0.013805,0.016701],[1962,-0.100113,0.043028,0.014201],[1963,0.206279,0.000388,0.014868],[1964,0.152961,0.027307,0.025501],[1965,0.102785,-0.011815,0.019878],[1966,-0.12981,-0.005328,0.013499],[1967,0.20151,-0.044838,0.01217],[1968,0.058204,-0.0138,0.0059],[1969,-0.13596,-0.10557,0.004438],[1970,-0.019031,0.105943,0.007774],[1971,0.106083,0.063143,0.010341],[1972,0.148434,-0.005685,0.006339],[1973,-0.211708,-0.04643,-0.015367],[1974,-0.340397,-0.092125,-0.039985],[1975,0.28109,-0.031151,-0.010754],[1976,0.180863,0.106038,0.001066],[1977,-0.128216,-0.050712,-0.013496],[1978,-0.023009,-0.08985,-0.016873],[1979,0.046124,-0.11142,-0.028595],[1980,0.17081,-0.137812,-0.009993],[1981,-0.125087,-0.006639,0.046949],[1982,0.159774,0.279156,0.069924],[1983,0.178688,-0.005692,0.049706],[1984,0.02114,0.09413,0.057445],[1985,0.264324,0.211118,0.037778],[1986,0.172078,0.229345,0.049972],[1987,0.013198,-0.08996,0.014608],[1988,0.116049,0.036432,0.02366],[1989,0.256365,0.12467,0.035765],[1990,-0.08643,0.001217,0.015491],[1991,0.263627,0.115852,0.024021],[1992,0.044636,0.062789,0.005922],[1993,0.070256,0.111559,0.00313],[1994,-0.013138,-0.104325,0.016509],[1995,0.337988,0.204239,0.030443],[1996,0.18736,-0.01833,0.017688],[1997,0.308756,0.080989,0.034391],[1998,0.263021,0.130984,0.032458],[1999,0.17725,-0.106528,0.020407],[2000,-0.120118,0.128338,0.025276],[2001,-0.131967,0.03959,0.018988],[2002,-0.237778,0.124437,-0.007198],[2003,0.259879,-0.014764,-0.008338],[2004,0.072512,0.011962,-0.017971],[2005,0.01372,-0.0053,-0.001892],[2006,0.12748,-0.005653,0.022521],[2007,0.013484,0.058883,0.003831],[2008,-0.366103,0.199916,0.013074],[2009,0.225989,-0.134714,-0.025032],[2010,0.13129,0.068645,-0.013357],[2011,-0.008392,0.126968,-0.028286],[2012,0.139074,0.012095,-0.016228],[2013,0.3019,-0.104494,-0.014204],[2014,0.126721,0.099147,-0.00721],[2015,0.006447,0.005508,-0.006746],[2016,0.095013,-0.013559,-0.01719],[2017,0.190937,0.006783,-0.011351],[2018,-0.06022,-0.018907,0.000587],[2019,0.282803,0.071863,-0.001712],[2020,0.164373,0.098359,-0.009885],[2021,0.200235,-0.106996,-0.065365],[2022,-0.230069,-0.228103,-0.040998],[2023,0.21972,0.005108,0.018654],[2024,0.213733,-0.043982,0.022276]];
+      const root = document.getElementById(&quot;withdrawal-rate-calculator&quot;);
+      const els = {
+        portfolio: root.querySelector(&quot;#wrc-portfolio&quot;),
+        rate: root.querySelector(&quot;#wrc-rate&quot;),
+        years: root.querySelector(&quot;#wrc-years&quot;),
+        stock: root.querySelector(&quot;#wrc-stock&quot;),
+        fee: root.querySelector(&quot;#wrc-fee&quot;),
+        rateLabel: root.querySelector(&quot;#wrc-rate-label&quot;),
+        yearsLabel: root.querySelector(&quot;#wrc-years-label&quot;),
+        stockLabel: root.querySelector(&quot;#wrc-stock-label&quot;),
+        feeLabel: root.querySelector(&quot;#wrc-fee-label&quot;),
+        success: root.querySelector(&quot;#wrc-success&quot;),
+        complete: root.querySelector(&quot;#wrc-complete&quot;),
+        worstStart: root.querySelector(&quot;#wrc-worst-start&quot;),
+        worstEnd: root.querySelector(&quot;#wrc-worst-end&quot;),
+        drawdown: root.querySelector(&quot;#wrc-drawdown&quot;),
+        spend: root.querySelector(&quot;#wrc-spend&quot;),
+        chart: root.querySelector(&quot;#wrc-chart&quot;),
+        path: root.querySelector(&quot;#wrc-path&quot;),
+        tooltip: root.querySelector(&quot;#wrc-tooltip&quot;)
+      };
+
+      const money = new Intl.NumberFormat(&quot;en-US&quot;, { style: &quot;currency&quot;, currency: &quot;USD&quot;, maximumFractionDigits: 0 });
+      const pct = new Intl.NumberFormat(&quot;en-US&quot;, { style: &quot;percent&quot;, maximumFractionDigits: 1 });
+
+      function simulate(start, years, initial, annualRate, fee, stockWeight) {
+        const annualWithdrawal = initial * annualRate;
+        let stockBalance = initial * stockWeight;
+        let bondBalance = initial * (1 - stockWeight);
+        let balance = initial;
+        let peak = initial;
+        let maxDrawdown = 0;
+        const path = [];
+        for (let offset = 0; offset &lt; years; offset += 1) {
+          balance = stockBalance + bondBalance;
+          const stockShare = balance &gt; 0 ? stockBalance / balance : stockWeight;
+          stockBalance -= annualWithdrawal * stockShare;
+          bondBalance -= annualWithdrawal * (1 - stockShare);
+          balance = stockBalance + bondBalance;
+          if (balance &lt;= 0) {
+            path.push({ year: offset + 1, balance: 0 });
+            return { startDate: String(annualReturns[start][0]), finalBalance: 0, failed: true, failYear: offset + 1, maxDrawdown: -1, path };
+          }
+          stockBalance *= Math.max(0, 1 + annualReturns[start + offset][1] - fee);
+          bondBalance *= Math.max(0, 1 + annualReturns[start + offset][2] - fee);
+          balance = stockBalance + bondBalance;
+          stockBalance = balance * stockWeight;
+          bondBalance = balance * (1 - stockWeight);
+          peak = Math.max(peak, balance);
+          maxDrawdown = Math.min(maxDrawdown, (balance - peak) / peak);
+          path.push({ year: offset + 1, balance });
+        }
+        return { startDate: String(annualReturns[start][0]), finalBalance: balance, failed: false, failYear: null, maxDrawdown, path };
+      }
+
+      function svgEl(name, attrs = {}, text = &quot;&quot;) {
+        const el = document.createElementNS(&quot;http://www.w3.org/2000/svg&quot;, name);
+        Object.entries(attrs).forEach(([key, value]) =&gt; el.setAttribute(key, value));
+        if (text) el.textContent = text;
+        return el;
+      }
+
+      function clear(svg, titleText, descText) {
+        while (svg.lastChild) svg.removeChild(svg.lastChild);
+        const title = svgEl(&quot;title&quot;, {}, titleText);
+        title.id = svg.id + &quot;-title&quot;;
+        const desc = svgEl(&quot;desc&quot;, {}, descText);
+        desc.id = svg.id + &quot;-desc&quot;;
+        svg.appendChild(title);
+        svg.appendChild(desc);
+      }
+
+      function drawOutcomes(results, initial) {
+        const svg = els.chart;
+        clear(svg, &quot;Rolling historical retirement outcomes&quot;, &quot;Each mark is a possible historical retirement start year and its final inflation-adjusted portfolio balance.&quot;);
+        const width = Math.max(320, Math.floor(svg.getBoundingClientRect().width || 736));
+        const height = 310;
+        svg.setAttribute(&quot;viewBox&quot;, `0 0 ${width} ${height}`);
+        const margin = { top: 16, right: 18, bottom: 42, left: 72 };
+        const plotW = width - margin.left - margin.right;
+        const plotH = height - margin.top - margin.bottom;
+        const maxY = Math.max(initial * 1.25, ...results.map(r =&gt; r.finalBalance));
+        const x = i =&gt; margin.left + (results.length === 1 ? plotW / 2 : i * plotW / (results.length - 1));
+        const y = v =&gt; margin.top + plotH - Math.max(0, v) / maxY * plotH;
+
+        [0, .5, 1].forEach(t =&gt; {
+          const yy = margin.top + plotH - t * plotH;
+          svg.appendChild(svgEl(&quot;line&quot;, { x1: margin.left, y1: yy, x2: width - margin.right, y2: yy, class: &quot;wrc-grid&quot; }));
+          svg.appendChild(svgEl(&quot;text&quot;, { x: margin.left - 8, y: yy + 4, &quot;text-anchor&quot;: &quot;end&quot;, class: &quot;wrc-label text-small&quot; }, money.format(maxY * t)));
+        });
+        svg.appendChild(svgEl(&quot;line&quot;, { x1: margin.left, y1: y(initial), x2: width - margin.right, y2: y(initial), class: &quot;wrc-initial&quot; }));
+        svg.appendChild(svgEl(&quot;line&quot;, { x1: margin.left, y1: margin.top + plotH, x2: width - margin.right, y2: margin.top + plotH, class: &quot;wrc-axis&quot; }));
+        svg.appendChild(svgEl(&quot;text&quot;, { x: margin.left, y: height - 12, class: &quot;wrc-label text-small&quot; }, results[0].startDate));
+        svg.appendChild(svgEl(&quot;text&quot;, { x: width - margin.right, y: height - 12, &quot;text-anchor&quot;: &quot;end&quot;, class: &quot;wrc-label text-small&quot; }, results[results.length - 1].startDate));
+
+        results.forEach((r, i) =&gt; {
+          const mark = svgEl(&quot;circle&quot;, {
+            cx: x(i),
+            cy: y(r.finalBalance),
+            r: 3,
+            class: r.failed ? &quot;wrc-failed&quot; : &quot;wrc-mark&quot;,
+            &quot;data-index&quot;: i
+          });
+          mark.addEventListener(&quot;mouseenter&quot;, () =&gt; showTooltip(mark, r));
+          mark.addEventListener(&quot;mouseleave&quot;, hideTooltip);
+          mark.addEventListener(&quot;focus&quot;, () =&gt; showTooltip(mark, r));
+          mark.addEventListener(&quot;blur&quot;, hideTooltip);
+          svg.appendChild(mark);
+        });
+      }
+
+      function showTooltip(mark, result) {
+        const svgBox = els.chart.getBoundingClientRect();
+        const markBox = mark.getBoundingClientRect();
+        els.tooltip.innerHTML = `&lt;strong&gt;${result.startDate}&lt;/strong&gt;&lt;br&gt;${result.failed ? &quot;Depleted in year &quot; + result.failYear : &quot;Ended at &quot; + money.format(result.finalBalance)}&lt;br&gt;Max drawdown ${pct.format(result.maxDrawdown)}`;
+        els.tooltip.classList.add(&quot;is-visible&quot;);
+        const tipBox = els.tooltip.getBoundingClientRect();
+        const left = Math.min(Math.max(0, markBox.left - svgBox.left - tipBox.width / 2), svgBox.width - tipBox.width);
+        const top = Math.max(0, markBox.top - svgBox.top - tipBox.height - 8);
+        els.tooltip.style.left = `${left}px`;
+        els.tooltip.style.top = `${top}px`;
+      }
+
+      function hideTooltip() {
+        els.tooltip.classList.remove(&quot;is-visible&quot;);
+      }
+
+      function drawPath(result, initial) {
+        const svg = els.path;
+        clear(svg, &quot;Worst historical path&quot;, &quot;The inflation-adjusted portfolio balance through the worst starting year for the selected withdrawal plan.&quot;);
+        const width = Math.max(320, Math.floor(svg.getBoundingClientRect().width || 736));
+        const height = 260;
+        svg.setAttribute(&quot;viewBox&quot;, `0 0 ${width} ${height}`);
+        const margin = { top: 16, right: 18, bottom: 38, left: 72 };
+        const plotW = width - margin.left - margin.right;
+        const plotH = height - margin.top - margin.bottom;
+        const maxY = Math.max(initial, ...result.path.map(p =&gt; p.balance));
+        const x = y =&gt; margin.left + (y - 1) * plotW / Math.max(1, result.path.length - 1);
+        const y = v =&gt; margin.top + plotH - v / maxY * plotH;
+        [0, .5, 1].forEach(t =&gt; {
+          const yy = margin.top + plotH - t * plotH;
+          svg.appendChild(svgEl(&quot;line&quot;, { x1: margin.left, y1: yy, x2: width - margin.right, y2: yy, class: &quot;wrc-grid&quot; }));
+          svg.appendChild(svgEl(&quot;text&quot;, { x: margin.left - 8, y: yy + 4, &quot;text-anchor&quot;: &quot;end&quot;, class: &quot;wrc-label text-small&quot; }, money.format(maxY * t)));
+        });
+        const d = result.path.map((p, i) =&gt; `${i ? &quot;L&quot; : &quot;M&quot;}${x(p.year).toFixed(1)},${y(p.balance).toFixed(1)}`).join(&quot; &quot;);
+        svg.appendChild(svgEl(&quot;path&quot;, { d, class: &quot;wrc-line&quot; }));
+        svg.appendChild(svgEl(&quot;text&quot;, { x: margin.left, y: height - 10, class: &quot;wrc-label text-small&quot; }, &quot;Year 1&quot;));
+        svg.appendChild(svgEl(&quot;text&quot;, { x: width - margin.right, y: height - 10, &quot;text-anchor&quot;: &quot;end&quot;, class: &quot;wrc-label text-small&quot; }, `Year ${result.path.length}`));
+        svg.appendChild(svgEl(&quot;text&quot;, { x: margin.left, y: 12, class: &quot;wrc-label text-small&quot; }, `Worst path from ${result.startDate}`));
+      }
+
+      function update() {
+        const initial = Math.max(10000, Number(els.portfolio.value) || 1000000);
+        const annualRate = Number(els.rate.value) / 100;
+        const years = Number(els.years.value);
+        const fee = Number(els.fee.value) / 100;
+        const stockWeight = Number(els.stock.value) / 100;
+        const maxStart = annualReturns.length - years;
+        if (maxStart &lt; 0) {
+          els.years.value = annualReturns.length;
+          update();
+          return;
+        }
+        const results = [];
+        for (let i = 0; i &lt;= maxStart; i += 1) results.push(simulate(i, years, initial, annualRate, fee, stockWeight));
+        const successes = results.filter(r =&gt; !r.failed).length;
+        const worst = results.reduce((a, b) =&gt; a.finalBalance &lt;= b.finalBalance ? a : b);
+        const worstDrawdown = results.reduce((a, b) =&gt; a.maxDrawdown &lt;= b.maxDrawdown ? a : b);
+
+        els.rateLabel.textContent = `${Number(els.rate.value).toFixed(1)}%`;
+        els.yearsLabel.textContent = `${years} years`;
+        els.stockLabel.textContent = `${Number(els.stock.value)}%`;
+        els.feeLabel.textContent = `${Number(els.fee.value).toFixed(2)}%`;
+        els.success.textContent = pct.format(successes / results.length);
+        els.complete.textContent = `${successes} of ${results.length} rolling starts survived`;
+        els.worstStart.textContent = worst.startDate;
+        els.worstEnd.textContent = worst.failed ? `depleted in year ${worst.failYear}` : `ended at ${money.format(worst.finalBalance)}`;
+        els.drawdown.textContent = pct.format(worstDrawdown.maxDrawdown);
+        els.spend.textContent = `${money.format(initial * annualRate)}/year, ${Number(els.stock.value)}/${100 - Number(els.stock.value)} mix`;
+
+        drawOutcomes(results, initial);
+        drawPath(worst, initial);
+      }
+
+      [&quot;input&quot;, &quot;change&quot;].forEach(eventName =&gt; {
+        [els.portfolio, els.rate, els.years, els.stock, els.fee].forEach(el =&gt; el.addEventListener(eventName, update));
+      });
+      window.addEventListener(&quot;resize&quot;, update);
+      update();
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handleLeave = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>
