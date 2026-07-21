@@ -819,6 +819,11 @@ html>body{padding:0}</style>
     #withdrawal-rate-calculator .wrc-advanced[hidden] {
       display: none;
     }
+    #withdrawal-rate-calculator .wrc-presets {
+      margin-top: .35rem;
+      gap: .35rem;
+      justify-content: flex-start;
+    }
     #withdrawal-rate-calculator .wrc-chart-wrap {
       position: relative;
     }
@@ -904,7 +909,13 @@ html>body{padding:0}</style>
   </div>
   <div class="viz-controls wrc-controls">
     <label class="form-label">Portfolio
-      <input class="form-control" id="wrc-portfolio" type="number" min="10000" step="10000" value="1000000">
+      <input class="form-control" id="wrc-portfolio" type="number" min="10000" step="10000" value="400000">
+      <span class="viz-row wrc-presets" aria-label="Portfolio presets">
+        <button class="btn btn-ghost" type="button" data-portfolio="400000">$400K</button>
+        <button class="btn btn-ghost" type="button" data-portfolio="750000">$750K</button>
+        <button class="btn btn-ghost" type="button" data-portfolio="1000000">$1M</button>
+        <button class="btn btn-ghost" type="button" data-portfolio="1500000">$1.5M</button>
+      </span>
     </label>
     <label class="form-label">Withdrawal rate <span id="wrc-rate-label">4.0%</span>
       <input class="form-range" id="wrc-rate" type="range" min="1" max="10" step="0.1" value="4">
@@ -1007,7 +1018,7 @@ html>body{padding:0}</style>
 
       const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
       const pct = new Intl.NumberFormat("en-US", { style: "percent", maximumFractionDigits: 1 });
-      let advanced = false;
+      let advanced = true;
 
       function setupStartYears() {
         const years = [...new Set(monthlyReturns.map(r => r[0].slice(0, 4)))].filter((_, i) => i % 5 === 0);
@@ -1199,7 +1210,7 @@ html>body{padding:0}</style>
       }
 
       function update() {
-        const initial = Math.max(10000, Number(els.portfolio.value) || 1000000);
+        const initial = Math.max(10000, Number(els.portfolio.value) || 400000);
         const annualRate = Number(els.rate.value) / 100;
         const years = Number(els.years.value);
         const fee = Number(els.fee.value) / 100;
@@ -1269,12 +1280,18 @@ html>body{padding:0}</style>
       setupStartYears();
       els.simpleMode.addEventListener("click", () => setMode(false));
       els.advancedMode.addEventListener("click", () => setMode(true));
+      root.querySelectorAll("[data-portfolio]").forEach(button => {
+        button.addEventListener("click", () => {
+          els.portfolio.value = button.dataset.portfolio;
+          update();
+        });
+      });
       ["input", "change"].forEach(eventName => {
         [els.portfolio, els.rate, els.years, els.stock, els.fee, els.rule, els.timing, els.rebalance, els.duration, els.startAfter, els.cape]
           .forEach(el => el.addEventListener(eventName, update));
       });
       window.addEventListener("resize", update);
-      update();
+      setMode(true);
     })();
   </script>
 </div>
