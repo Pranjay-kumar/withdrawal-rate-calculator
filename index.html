@@ -4,20 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Withdrawal Rate Calculator</title>
-<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:clamp(.5rem,1.5vw,1.25rem);background:inherit}iframe{display:block;width:100%;max-width:none;height:calc(100vh - clamp(1rem,3vw,2.5rem));margin:0;border:0}</style>
-</head>
-<body>
-<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Withdrawal Rate Calculator" srcdoc="&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;utf-8&quot;&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
-&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
-&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
-&lt;title&gt;Withdrawal Rate Calculator&lt;/title&gt;
-&lt;style&gt;:root {
+<style>:root {
   color-scheme: light dark;
   background-color: var(--background) !important;
 
@@ -55,9 +44,9 @@
   --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
 
   /* Internal implementation variables; not part of the agent contract. */
-  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-sans: -apple-system, system-ui, "Segoe UI", sans-serif;
   --font-mono:
-    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
     monospace;
   --font-size-normal: max(11px, var(--font-size-base));
   --font-size-tooltip: calc(var(--font-size-base) - 1px);
@@ -77,7 +66,7 @@
   --radius-2xl: calc(var(--radius) * 1.6);
   --radius-full: 9999px;
   --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
-  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+  --checkmark-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17'%3E%3Cpath d='M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z'/%3E%3C/svg%3E");
 
   /* Legacy aliases; not part of the current agent contract. */
   --viz-bg: transparent;
@@ -95,11 +84,11 @@
   --color-border-secondary: var(--border);
 }
 
-:root[data-theme=&quot;light&quot;] {
+:root[data-theme="light"] {
   color-scheme: light;
 }
 
-:root[data-theme=&quot;dark&quot;] {
+:root[data-theme="dark"] {
   color-scheme: dark;
 }
 
@@ -107,7 +96,7 @@
   box-sizing: border-box;
 }
 
-html &gt; body {
+html > body {
   margin: 0;
   padding: 5px;
   color: var(--foreground);
@@ -206,7 +195,7 @@ code:not(pre code) {
   vertical-align: top;
 }
 
-.table-responsive &gt; .table :is(th, td) {
+.table-responsive > .table :is(th, td) {
   overflow-wrap: break-word;
 }
 
@@ -235,12 +224,12 @@ code:not(pre code) {
   padding-inline-end: 16px;
 }
 
-.table :is(.text-end, [align=&quot;right&quot;]) {
+.table :is(.text-end, [align="right"]) {
   text-align: end;
   font-variant-numeric: tabular-nums;
 }
 
-.table :is(.text-center, [align=&quot;center&quot;]) {
+.table :is(.text-center, [align="center"]) {
   text-align: center;
 }
 
@@ -268,7 +257,7 @@ code:not(pre code) {
   background: var(--card);
 }
 
-#widget &gt; :not(.card) {
+#widget > :not(.card) {
   width: 100% !important;
   max-width: none !important;
   margin: 0 !important;
@@ -371,7 +360,7 @@ small,
   gap: 8px;
 }
 
-.viz-controls &gt; .form-label {
+.viz-controls > .form-label {
   display: grid;
   min-width: min(100%, 260px);
   flex: 1 1 280px;
@@ -381,7 +370,7 @@ small,
   margin-bottom: 0;
 }
 
-.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+.viz-controls > .form-label > :is(.form-control, .form-range, .form-select) {
   grid-column: 1 / -1;
 }
 
@@ -496,13 +485,13 @@ a.btn {
   color: var(--muted-foreground);
 }
 
-.form-control[type=&quot;file&quot;] {
+.form-control[type="file"] {
   padding: 0;
   overflow: hidden;
   cursor: var(--cursor-interaction, pointer);
 }
 
-.form-control[type=&quot;file&quot;]::file-selector-button {
+.form-control[type="file"]::file-selector-button {
   min-height: 26px;
   margin-right: 8px;
   padding: 0 8px;
@@ -514,22 +503,22 @@ a.btn {
   font: inherit;
 }
 
-.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+.form-control[type="file"]:not(:disabled):hover::file-selector-button {
   background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
 }
 
-.form-control-color[type=&quot;color&quot;] {
+.form-control-color[type="color"] {
   width: 40px;
   height: 28px;
   padding: 3px;
   cursor: var(--cursor-interaction, pointer);
 }
 
-.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+.form-control-color[type="color"]::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+.form-control-color[type="color"]::-webkit-color-swatch {
   border: 0;
   border-radius: calc(var(--radius-lg) - 4px);
   corner-shape: superellipse(1.5);
@@ -609,7 +598,7 @@ textarea.form-control {
     box-shadow 150ms;
 }
 
-.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+.form-check:not(.form-switch) .form-check-input[type="checkbox"] {
   border-color: var(--input);
   border-radius: var(--radius-sm);
   corner-shape: superellipse(1.5);
@@ -622,28 +611,28 @@ textarea.form-control {
   background-color: var(--card);
 }
 
-.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+.form-check:not(.form-switch) .form-check-input[type="checkbox"]:checked {
   border-color: var(--primary);
   background-color: var(--primary);
 }
 
 .form-check:not(.form-switch)
-  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  .form-check-input[type="checkbox"]:checked::before {
   display: block;
   width: 100%;
   height: 100%;
   background: var(--primary-foreground);
-  content: &quot;&quot;;
+  content: "";
   mask: var(--checkmark-image) center / 12px 12px no-repeat;
 }
 
-.form-check-input[type=&quot;radio&quot;] {
+.form-check-input[type="radio"] {
   width: 14px;
   height: 14px;
   border-radius: var(--radius-full);
 }
 
-.form-check-input[type=&quot;radio&quot;]:checked {
+.form-check-input[type="radio"]:checked {
   border: 2px solid var(--primary);
   background:
     radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
@@ -697,7 +686,7 @@ textarea.form-control {
   border-radius: var(--radius-full);
   background: light-dark(var(--primary-foreground), var(--foreground));
   box-shadow: var(--shadow-sm);
-  content: &quot;&quot;;
+  content: "";
   transform: translate(2px, -50%);
   transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
 }
@@ -776,8 +765,8 @@ textarea.form-control {
 }
 
 .btn:not(.btn-primary, .viz-tile):is(
-    [aria-pressed=&quot;true&quot;],
-    [aria-selected=&quot;true&quot;],
+    [aria-pressed="true"],
+    [aria-selected="true"],
     .is-selected
   ) {
   border-color: var(--primary);
@@ -785,7 +774,7 @@ textarea.form-control {
   background: var(--primary);
 }
 
-.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+.btn.viz-tile:is([aria-pressed="true"], [aria-selected="true"], .is-selected) {
   border-color: var(--primary);
   box-shadow: inset 0 0 0 1px var(--primary);
 }
@@ -801,7 +790,7 @@ svg {
   height: auto;
 }
 
-#widget &gt; svg {
+#widget > svg {
   width: 100%;
 }
 
@@ -810,11 +799,11 @@ svg {
   color: var(--destructive);
 }
 
-html&gt;body{padding:0}&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div id=&quot;withdrawal-rate-calculator&quot; class=&quot;wrc&quot;&gt;
-  &lt;style&gt;
+html>body{padding:0}</style>
+</head>
+<body>
+<div id="withdrawal-rate-calculator" class="wrc">
+  <style>
     #withdrawal-rate-calculator {
       color: var(--foreground);
       display: grid;
@@ -877,80 +866,80 @@ html&gt;body{padding:0}&lt;/style&gt;
         grid-template-columns: repeat(5, minmax(0, 1fr));
       }
     }
-  &lt;/style&gt;
-  &lt;div class=&quot;viz-grid&quot; aria-live=&quot;polite&quot;&gt;
-    &lt;div class=&quot;card viz-stat&quot;&gt;
-      &lt;div class=&quot;text-muted&quot;&gt;Historical success&lt;/div&gt;
-      &lt;div class=&quot;viz-stat-value&quot; id=&quot;wrc-success&quot;&gt;--&lt;/div&gt;
-      &lt;div class=&quot;text-small&quot; id=&quot;wrc-complete&quot;&gt;--&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;card viz-stat&quot;&gt;
-      &lt;div class=&quot;text-muted&quot;&gt;Worst start&lt;/div&gt;
-      &lt;div class=&quot;viz-stat-value&quot; id=&quot;wrc-worst-start&quot;&gt;--&lt;/div&gt;
-      &lt;div class=&quot;text-small&quot; id=&quot;wrc-worst-end&quot;&gt;--&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;card viz-stat&quot;&gt;
-      &lt;div class=&quot;text-muted&quot;&gt;Worst drawdown&lt;/div&gt;
-      &lt;div class=&quot;viz-stat-value&quot; id=&quot;wrc-drawdown&quot;&gt;--&lt;/div&gt;
-      &lt;div class=&quot;text-small&quot; id=&quot;wrc-spend&quot;&gt;--&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;viz-controls wrc-controls&quot;&gt;
-    &lt;label class=&quot;form-label&quot;&gt;Portfolio
-      &lt;input class=&quot;form-control&quot; id=&quot;wrc-portfolio&quot; type=&quot;number&quot; min=&quot;10000&quot; step=&quot;10000&quot; value=&quot;1000000&quot;&gt;
-    &lt;/label&gt;
-    &lt;label class=&quot;form-label&quot;&gt;Withdrawal rate &lt;span id=&quot;wrc-rate-label&quot;&gt;4.0%&lt;/span&gt;
-      &lt;input class=&quot;form-range&quot; id=&quot;wrc-rate&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;10&quot; step=&quot;0.1&quot; value=&quot;4&quot;&gt;
-    &lt;/label&gt;
-    &lt;label class=&quot;form-label&quot;&gt;Horizon &lt;span id=&quot;wrc-years-label&quot;&gt;30 years&lt;/span&gt;
-      &lt;input class=&quot;form-range&quot; id=&quot;wrc-years&quot; type=&quot;range&quot; min=&quot;10&quot; max=&quot;70&quot; step=&quot;1&quot; value=&quot;30&quot;&gt;
-    &lt;/label&gt;
-    &lt;label class=&quot;form-label&quot;&gt;Stock allocation &lt;span id=&quot;wrc-stock-label&quot;&gt;60%&lt;/span&gt;
-      &lt;input class=&quot;form-range&quot; id=&quot;wrc-stock&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;5&quot; value=&quot;60&quot;&gt;
-    &lt;/label&gt;
-    &lt;label class=&quot;form-label&quot;&gt;Annual fee &lt;span id=&quot;wrc-fee-label&quot;&gt;0.20%&lt;/span&gt;
-      &lt;input class=&quot;form-range&quot; id=&quot;wrc-fee&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;2&quot; step=&quot;0.05&quot; value=&quot;0.2&quot;&gt;
-    &lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;wrc-chart-wrap&quot;&gt;
-    &lt;svg class=&quot;wrc-chart&quot; id=&quot;wrc-chart&quot; role=&quot;img&quot; aria-labelledby=&quot;wrc-chart-title wrc-chart-desc&quot;&gt;
-      &lt;title id=&quot;wrc-chart-title&quot;&gt;Rolling historical retirement outcomes&lt;/title&gt;
-      &lt;desc id=&quot;wrc-chart-desc&quot;&gt;Each mark is a possible historical retirement start year and its final inflation-adjusted portfolio balance.&lt;/desc&gt;
-    &lt;/svg&gt;
-    &lt;div class=&quot;tooltip wrc-tooltip text-small&quot; id=&quot;wrc-tooltip&quot;&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;svg class=&quot;wrc-path&quot; id=&quot;wrc-path&quot; role=&quot;img&quot; aria-labelledby=&quot;wrc-path-title wrc-path-desc&quot;&gt;
-    &lt;title id=&quot;wrc-path-title&quot;&gt;Worst historical path&lt;/title&gt;
-    &lt;desc id=&quot;wrc-path-desc&quot;&gt;The inflation-adjusted portfolio balance through the worst starting year for the selected withdrawal plan.&lt;/desc&gt;
-  &lt;/svg&gt;
-  &lt;div class=&quot;text-small wrc-note&quot;&gt;Data: Aswath Damodaran, NYU Stern, Historical Returns on Stocks, Bonds and Bills, updated January 2026. Annual real returns from 1928 to 2024 are used for S&amp;amp;P 500 total return, 10-year US Treasury bond total return, and 3-month T-bills. The stock slider invests the remainder in 10-year Treasury bonds, withdrawals happen at the start of each year, and portfolios rebalance annually. This is historical stress testing, not a forecast.&lt;/div&gt;
-  &lt;script&gt;
-    (() =&gt; {
+  </style>
+  <div class="viz-grid" aria-live="polite">
+    <div class="card viz-stat">
+      <div class="text-muted">Historical success</div>
+      <div class="viz-stat-value" id="wrc-success">--</div>
+      <div class="text-small" id="wrc-complete">--</div>
+    </div>
+    <div class="card viz-stat">
+      <div class="text-muted">Worst start</div>
+      <div class="viz-stat-value" id="wrc-worst-start">--</div>
+      <div class="text-small" id="wrc-worst-end">--</div>
+    </div>
+    <div class="card viz-stat">
+      <div class="text-muted">Worst drawdown</div>
+      <div class="viz-stat-value" id="wrc-drawdown">--</div>
+      <div class="text-small" id="wrc-spend">--</div>
+    </div>
+  </div>
+  <div class="viz-controls wrc-controls">
+    <label class="form-label">Portfolio
+      <input class="form-control" id="wrc-portfolio" type="number" min="10000" step="10000" value="1000000">
+    </label>
+    <label class="form-label">Withdrawal rate <span id="wrc-rate-label">4.0%</span>
+      <input class="form-range" id="wrc-rate" type="range" min="1" max="10" step="0.1" value="4">
+    </label>
+    <label class="form-label">Horizon <span id="wrc-years-label">30 years</span>
+      <input class="form-range" id="wrc-years" type="range" min="10" max="70" step="1" value="30">
+    </label>
+    <label class="form-label">Stock allocation <span id="wrc-stock-label">60%</span>
+      <input class="form-range" id="wrc-stock" type="range" min="0" max="100" step="5" value="60">
+    </label>
+    <label class="form-label">Annual fee <span id="wrc-fee-label">0.20%</span>
+      <input class="form-range" id="wrc-fee" type="range" min="0" max="2" step="0.05" value="0.2">
+    </label>
+  </div>
+  <div class="wrc-chart-wrap">
+    <svg class="wrc-chart" id="wrc-chart" role="img" aria-labelledby="wrc-chart-title wrc-chart-desc">
+      <title id="wrc-chart-title">Rolling historical retirement outcomes</title>
+      <desc id="wrc-chart-desc">Each mark is a possible historical retirement start year and its final inflation-adjusted portfolio balance.</desc>
+    </svg>
+    <div class="tooltip wrc-tooltip text-small" id="wrc-tooltip"></div>
+  </div>
+  <svg class="wrc-path" id="wrc-path" role="img" aria-labelledby="wrc-path-title wrc-path-desc">
+    <title id="wrc-path-title">Worst historical path</title>
+    <desc id="wrc-path-desc">The inflation-adjusted portfolio balance through the worst starting year for the selected withdrawal plan.</desc>
+  </svg>
+  <div class="text-small wrc-note">Data: Aswath Damodaran, NYU Stern, Historical Returns on Stocks, Bonds and Bills, updated January 2026. Annual real returns from 1928 to 2024 are used for S&P 500 total return, 10-year US Treasury bond total return, and 3-month T-bills. The stock slider invests the remainder in 10-year Treasury bonds, withdrawals happen at the start of each year, and portfolios rebalance annually. This is historical stress testing, not a forecast.</div>
+  <script>
+    (() => {
       const annualReturns = [[1928,0.454932,0.020148,0.042856],[1929,-0.088311,0.03598,0.025602],[1930,-0.200079,0.116835,0.116932],[1931,-0.380674,0.074522,0.128213],[1932,0.018184,0.212472,0.126429],[1933,0.48846,0.010836,0.001952],[1934,-0.026634,0.06352,-0.012184],[1935,0.424871,0.014439,-0.027359],[1936,0.300585,0.035176,-0.012585],[1937,-0.371329,-0.014369,-0.025096],[1938,0.329764,0.071908,0.02924],[1939,-0.010976,0.044123,0.000458],[1940,-0.113064,0.046549,-0.006736],[1941,-0.206502,-0.108718,-0.089148],[1942,0.093014,-0.061793,-0.079699],[1943,0.214676,-0.004551,-0.025045],[1944,0.163558,0.002725,-0.018757],[1945,0.32836,0.01523,-0.018262],[1946,-0.224842,-0.127006,-0.150272],[1947,-0.033419,-0.072746,-0.075676],[1948,0.026343,-0.010102,-0.018899],[1949,0.208096,0.068809,0.032573],[1950,0.234804,-0.051945,-0.044641],[1951,0.166778,-0.05939,-0.042288],[1952,0.17266,0.015019,0.009605],[1953,-0.019427,0.033695,0.011333],[1954,0.537061,0.040635,0.016936],[1955,0.321026,-0.017046,0.013448],[1956,0.043253,-0.050889,-0.003531],[1957,-0.129797,0.037886,0.003168],[1958,0.412335,-0.037928,5.9e-05],[1959,0.101507,-0.043023,0.016278],[1960,-0.010103,0.10141,0.014921],[1961,0.257935,0.013805,0.016701],[1962,-0.100113,0.043028,0.014201],[1963,0.206279,0.000388,0.014868],[1964,0.152961,0.027307,0.025501],[1965,0.102785,-0.011815,0.019878],[1966,-0.12981,-0.005328,0.013499],[1967,0.20151,-0.044838,0.01217],[1968,0.058204,-0.0138,0.0059],[1969,-0.13596,-0.10557,0.004438],[1970,-0.019031,0.105943,0.007774],[1971,0.106083,0.063143,0.010341],[1972,0.148434,-0.005685,0.006339],[1973,-0.211708,-0.04643,-0.015367],[1974,-0.340397,-0.092125,-0.039985],[1975,0.28109,-0.031151,-0.010754],[1976,0.180863,0.106038,0.001066],[1977,-0.128216,-0.050712,-0.013496],[1978,-0.023009,-0.08985,-0.016873],[1979,0.046124,-0.11142,-0.028595],[1980,0.17081,-0.137812,-0.009993],[1981,-0.125087,-0.006639,0.046949],[1982,0.159774,0.279156,0.069924],[1983,0.178688,-0.005692,0.049706],[1984,0.02114,0.09413,0.057445],[1985,0.264324,0.211118,0.037778],[1986,0.172078,0.229345,0.049972],[1987,0.013198,-0.08996,0.014608],[1988,0.116049,0.036432,0.02366],[1989,0.256365,0.12467,0.035765],[1990,-0.08643,0.001217,0.015491],[1991,0.263627,0.115852,0.024021],[1992,0.044636,0.062789,0.005922],[1993,0.070256,0.111559,0.00313],[1994,-0.013138,-0.104325,0.016509],[1995,0.337988,0.204239,0.030443],[1996,0.18736,-0.01833,0.017688],[1997,0.308756,0.080989,0.034391],[1998,0.263021,0.130984,0.032458],[1999,0.17725,-0.106528,0.020407],[2000,-0.120118,0.128338,0.025276],[2001,-0.131967,0.03959,0.018988],[2002,-0.237778,0.124437,-0.007198],[2003,0.259879,-0.014764,-0.008338],[2004,0.072512,0.011962,-0.017971],[2005,0.01372,-0.0053,-0.001892],[2006,0.12748,-0.005653,0.022521],[2007,0.013484,0.058883,0.003831],[2008,-0.366103,0.199916,0.013074],[2009,0.225989,-0.134714,-0.025032],[2010,0.13129,0.068645,-0.013357],[2011,-0.008392,0.126968,-0.028286],[2012,0.139074,0.012095,-0.016228],[2013,0.3019,-0.104494,-0.014204],[2014,0.126721,0.099147,-0.00721],[2015,0.006447,0.005508,-0.006746],[2016,0.095013,-0.013559,-0.01719],[2017,0.190937,0.006783,-0.011351],[2018,-0.06022,-0.018907,0.000587],[2019,0.282803,0.071863,-0.001712],[2020,0.164373,0.098359,-0.009885],[2021,0.200235,-0.106996,-0.065365],[2022,-0.230069,-0.228103,-0.040998],[2023,0.21972,0.005108,0.018654],[2024,0.213733,-0.043982,0.022276]];
-      const root = document.getElementById(&quot;withdrawal-rate-calculator&quot;);
+      const root = document.getElementById("withdrawal-rate-calculator");
       const els = {
-        portfolio: root.querySelector(&quot;#wrc-portfolio&quot;),
-        rate: root.querySelector(&quot;#wrc-rate&quot;),
-        years: root.querySelector(&quot;#wrc-years&quot;),
-        stock: root.querySelector(&quot;#wrc-stock&quot;),
-        fee: root.querySelector(&quot;#wrc-fee&quot;),
-        rateLabel: root.querySelector(&quot;#wrc-rate-label&quot;),
-        yearsLabel: root.querySelector(&quot;#wrc-years-label&quot;),
-        stockLabel: root.querySelector(&quot;#wrc-stock-label&quot;),
-        feeLabel: root.querySelector(&quot;#wrc-fee-label&quot;),
-        success: root.querySelector(&quot;#wrc-success&quot;),
-        complete: root.querySelector(&quot;#wrc-complete&quot;),
-        worstStart: root.querySelector(&quot;#wrc-worst-start&quot;),
-        worstEnd: root.querySelector(&quot;#wrc-worst-end&quot;),
-        drawdown: root.querySelector(&quot;#wrc-drawdown&quot;),
-        spend: root.querySelector(&quot;#wrc-spend&quot;),
-        chart: root.querySelector(&quot;#wrc-chart&quot;),
-        path: root.querySelector(&quot;#wrc-path&quot;),
-        tooltip: root.querySelector(&quot;#wrc-tooltip&quot;)
+        portfolio: root.querySelector("#wrc-portfolio"),
+        rate: root.querySelector("#wrc-rate"),
+        years: root.querySelector("#wrc-years"),
+        stock: root.querySelector("#wrc-stock"),
+        fee: root.querySelector("#wrc-fee"),
+        rateLabel: root.querySelector("#wrc-rate-label"),
+        yearsLabel: root.querySelector("#wrc-years-label"),
+        stockLabel: root.querySelector("#wrc-stock-label"),
+        feeLabel: root.querySelector("#wrc-fee-label"),
+        success: root.querySelector("#wrc-success"),
+        complete: root.querySelector("#wrc-complete"),
+        worstStart: root.querySelector("#wrc-worst-start"),
+        worstEnd: root.querySelector("#wrc-worst-end"),
+        drawdown: root.querySelector("#wrc-drawdown"),
+        spend: root.querySelector("#wrc-spend"),
+        chart: root.querySelector("#wrc-chart"),
+        path: root.querySelector("#wrc-path"),
+        tooltip: root.querySelector("#wrc-tooltip")
       };
 
-      const money = new Intl.NumberFormat(&quot;en-US&quot;, { style: &quot;currency&quot;, currency: &quot;USD&quot;, maximumFractionDigits: 0 });
-      const pct = new Intl.NumberFormat(&quot;en-US&quot;, { style: &quot;percent&quot;, maximumFractionDigits: 1 });
+      const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+      const pct = new Intl.NumberFormat("en-US", { style: "percent", maximumFractionDigits: 1 });
 
       function simulate(start, years, initial, annualRate, fee, stockWeight) {
         const annualWithdrawal = initial * annualRate;
@@ -960,13 +949,13 @@ html&gt;body{padding:0}&lt;/style&gt;
         let peak = initial;
         let maxDrawdown = 0;
         const path = [];
-        for (let offset = 0; offset &lt; years; offset += 1) {
+        for (let offset = 0; offset < years; offset += 1) {
           balance = stockBalance + bondBalance;
-          const stockShare = balance &gt; 0 ? stockBalance / balance : stockWeight;
+          const stockShare = balance > 0 ? stockBalance / balance : stockWeight;
           stockBalance -= annualWithdrawal * stockShare;
           bondBalance -= annualWithdrawal * (1 - stockShare);
           balance = stockBalance + bondBalance;
-          if (balance &lt;= 0) {
+          if (balance <= 0) {
             path.push({ year: offset + 1, balance: 0 });
             return { startDate: String(annualReturns[start][0]), finalBalance: 0, failed: true, failYear: offset + 1, maxDrawdown: -1, path };
           }
@@ -982,58 +971,58 @@ html&gt;body{padding:0}&lt;/style&gt;
         return { startDate: String(annualReturns[start][0]), finalBalance: balance, failed: false, failYear: null, maxDrawdown, path };
       }
 
-      function svgEl(name, attrs = {}, text = &quot;&quot;) {
-        const el = document.createElementNS(&quot;http://www.w3.org/2000/svg&quot;, name);
-        Object.entries(attrs).forEach(([key, value]) =&gt; el.setAttribute(key, value));
+      function svgEl(name, attrs = {}, text = "") {
+        const el = document.createElementNS("http://www.w3.org/2000/svg", name);
+        Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
         if (text) el.textContent = text;
         return el;
       }
 
       function clear(svg, titleText, descText) {
         while (svg.lastChild) svg.removeChild(svg.lastChild);
-        const title = svgEl(&quot;title&quot;, {}, titleText);
-        title.id = svg.id + &quot;-title&quot;;
-        const desc = svgEl(&quot;desc&quot;, {}, descText);
-        desc.id = svg.id + &quot;-desc&quot;;
+        const title = svgEl("title", {}, titleText);
+        title.id = svg.id + "-title";
+        const desc = svgEl("desc", {}, descText);
+        desc.id = svg.id + "-desc";
         svg.appendChild(title);
         svg.appendChild(desc);
       }
 
       function drawOutcomes(results, initial) {
         const svg = els.chart;
-        clear(svg, &quot;Rolling historical retirement outcomes&quot;, &quot;Each mark is a possible historical retirement start year and its final inflation-adjusted portfolio balance.&quot;);
+        clear(svg, "Rolling historical retirement outcomes", "Each mark is a possible historical retirement start year and its final inflation-adjusted portfolio balance.");
         const width = Math.max(320, Math.floor(svg.getBoundingClientRect().width || 736));
         const height = 310;
-        svg.setAttribute(&quot;viewBox&quot;, `0 0 ${width} ${height}`);
+        svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
         const margin = { top: 16, right: 18, bottom: 42, left: 72 };
         const plotW = width - margin.left - margin.right;
         const plotH = height - margin.top - margin.bottom;
-        const maxY = Math.max(initial * 1.25, ...results.map(r =&gt; r.finalBalance));
-        const x = i =&gt; margin.left + (results.length === 1 ? plotW / 2 : i * plotW / (results.length - 1));
-        const y = v =&gt; margin.top + plotH - Math.max(0, v) / maxY * plotH;
+        const maxY = Math.max(initial * 1.25, ...results.map(r => r.finalBalance));
+        const x = i => margin.left + (results.length === 1 ? plotW / 2 : i * plotW / (results.length - 1));
+        const y = v => margin.top + plotH - Math.max(0, v) / maxY * plotH;
 
-        [0, .5, 1].forEach(t =&gt; {
+        [0, .5, 1].forEach(t => {
           const yy = margin.top + plotH - t * plotH;
-          svg.appendChild(svgEl(&quot;line&quot;, { x1: margin.left, y1: yy, x2: width - margin.right, y2: yy, class: &quot;wrc-grid&quot; }));
-          svg.appendChild(svgEl(&quot;text&quot;, { x: margin.left - 8, y: yy + 4, &quot;text-anchor&quot;: &quot;end&quot;, class: &quot;wrc-label text-small&quot; }, money.format(maxY * t)));
+          svg.appendChild(svgEl("line", { x1: margin.left, y1: yy, x2: width - margin.right, y2: yy, class: "wrc-grid" }));
+          svg.appendChild(svgEl("text", { x: margin.left - 8, y: yy + 4, "text-anchor": "end", class: "wrc-label text-small" }, money.format(maxY * t)));
         });
-        svg.appendChild(svgEl(&quot;line&quot;, { x1: margin.left, y1: y(initial), x2: width - margin.right, y2: y(initial), class: &quot;wrc-initial&quot; }));
-        svg.appendChild(svgEl(&quot;line&quot;, { x1: margin.left, y1: margin.top + plotH, x2: width - margin.right, y2: margin.top + plotH, class: &quot;wrc-axis&quot; }));
-        svg.appendChild(svgEl(&quot;text&quot;, { x: margin.left, y: height - 12, class: &quot;wrc-label text-small&quot; }, results[0].startDate));
-        svg.appendChild(svgEl(&quot;text&quot;, { x: width - margin.right, y: height - 12, &quot;text-anchor&quot;: &quot;end&quot;, class: &quot;wrc-label text-small&quot; }, results[results.length - 1].startDate));
+        svg.appendChild(svgEl("line", { x1: margin.left, y1: y(initial), x2: width - margin.right, y2: y(initial), class: "wrc-initial" }));
+        svg.appendChild(svgEl("line", { x1: margin.left, y1: margin.top + plotH, x2: width - margin.right, y2: margin.top + plotH, class: "wrc-axis" }));
+        svg.appendChild(svgEl("text", { x: margin.left, y: height - 12, class: "wrc-label text-small" }, results[0].startDate));
+        svg.appendChild(svgEl("text", { x: width - margin.right, y: height - 12, "text-anchor": "end", class: "wrc-label text-small" }, results[results.length - 1].startDate));
 
-        results.forEach((r, i) =&gt; {
-          const mark = svgEl(&quot;circle&quot;, {
+        results.forEach((r, i) => {
+          const mark = svgEl("circle", {
             cx: x(i),
             cy: y(r.finalBalance),
             r: 3,
-            class: r.failed ? &quot;wrc-failed&quot; : &quot;wrc-mark&quot;,
-            &quot;data-index&quot;: i
+            class: r.failed ? "wrc-failed" : "wrc-mark",
+            "data-index": i
           });
-          mark.addEventListener(&quot;mouseenter&quot;, () =&gt; showTooltip(mark, r));
-          mark.addEventListener(&quot;mouseleave&quot;, hideTooltip);
-          mark.addEventListener(&quot;focus&quot;, () =&gt; showTooltip(mark, r));
-          mark.addEventListener(&quot;blur&quot;, hideTooltip);
+          mark.addEventListener("mouseenter", () => showTooltip(mark, r));
+          mark.addEventListener("mouseleave", hideTooltip);
+          mark.addEventListener("focus", () => showTooltip(mark, r));
+          mark.addEventListener("blur", hideTooltip);
           svg.appendChild(mark);
         });
       }
@@ -1041,8 +1030,8 @@ html&gt;body{padding:0}&lt;/style&gt;
       function showTooltip(mark, result) {
         const svgBox = els.chart.getBoundingClientRect();
         const markBox = mark.getBoundingClientRect();
-        els.tooltip.innerHTML = `&lt;strong&gt;${result.startDate}&lt;/strong&gt;&lt;br&gt;${result.failed ? &quot;Depleted in year &quot; + result.failYear : &quot;Ended at &quot; + money.format(result.finalBalance)}&lt;br&gt;Max drawdown ${pct.format(result.maxDrawdown)}`;
-        els.tooltip.classList.add(&quot;is-visible&quot;);
+        els.tooltip.innerHTML = `<strong>${result.startDate}</strong><br>${result.failed ? "Depleted in year " + result.failYear : "Ended at " + money.format(result.finalBalance)}<br>Max drawdown ${pct.format(result.maxDrawdown)}`;
+        els.tooltip.classList.add("is-visible");
         const tipBox = els.tooltip.getBoundingClientRect();
         const left = Math.min(Math.max(0, markBox.left - svgBox.left - tipBox.width / 2), svgBox.width - tipBox.width);
         const top = Math.max(0, markBox.top - svgBox.top - tipBox.height - 8);
@@ -1051,31 +1040,31 @@ html&gt;body{padding:0}&lt;/style&gt;
       }
 
       function hideTooltip() {
-        els.tooltip.classList.remove(&quot;is-visible&quot;);
+        els.tooltip.classList.remove("is-visible");
       }
 
       function drawPath(result, initial) {
         const svg = els.path;
-        clear(svg, &quot;Worst historical path&quot;, &quot;The inflation-adjusted portfolio balance through the worst starting year for the selected withdrawal plan.&quot;);
+        clear(svg, "Worst historical path", "The inflation-adjusted portfolio balance through the worst starting year for the selected withdrawal plan.");
         const width = Math.max(320, Math.floor(svg.getBoundingClientRect().width || 736));
         const height = 260;
-        svg.setAttribute(&quot;viewBox&quot;, `0 0 ${width} ${height}`);
+        svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
         const margin = { top: 16, right: 18, bottom: 38, left: 72 };
         const plotW = width - margin.left - margin.right;
         const plotH = height - margin.top - margin.bottom;
-        const maxY = Math.max(initial, ...result.path.map(p =&gt; p.balance));
-        const x = y =&gt; margin.left + (y - 1) * plotW / Math.max(1, result.path.length - 1);
-        const y = v =&gt; margin.top + plotH - v / maxY * plotH;
-        [0, .5, 1].forEach(t =&gt; {
+        const maxY = Math.max(initial, ...result.path.map(p => p.balance));
+        const x = y => margin.left + (y - 1) * plotW / Math.max(1, result.path.length - 1);
+        const y = v => margin.top + plotH - v / maxY * plotH;
+        [0, .5, 1].forEach(t => {
           const yy = margin.top + plotH - t * plotH;
-          svg.appendChild(svgEl(&quot;line&quot;, { x1: margin.left, y1: yy, x2: width - margin.right, y2: yy, class: &quot;wrc-grid&quot; }));
-          svg.appendChild(svgEl(&quot;text&quot;, { x: margin.left - 8, y: yy + 4, &quot;text-anchor&quot;: &quot;end&quot;, class: &quot;wrc-label text-small&quot; }, money.format(maxY * t)));
+          svg.appendChild(svgEl("line", { x1: margin.left, y1: yy, x2: width - margin.right, y2: yy, class: "wrc-grid" }));
+          svg.appendChild(svgEl("text", { x: margin.left - 8, y: yy + 4, "text-anchor": "end", class: "wrc-label text-small" }, money.format(maxY * t)));
         });
-        const d = result.path.map((p, i) =&gt; `${i ? &quot;L&quot; : &quot;M&quot;}${x(p.year).toFixed(1)},${y(p.balance).toFixed(1)}`).join(&quot; &quot;);
-        svg.appendChild(svgEl(&quot;path&quot;, { d, class: &quot;wrc-line&quot; }));
-        svg.appendChild(svgEl(&quot;text&quot;, { x: margin.left, y: height - 10, class: &quot;wrc-label text-small&quot; }, &quot;Year 1&quot;));
-        svg.appendChild(svgEl(&quot;text&quot;, { x: width - margin.right, y: height - 10, &quot;text-anchor&quot;: &quot;end&quot;, class: &quot;wrc-label text-small&quot; }, `Year ${result.path.length}`));
-        svg.appendChild(svgEl(&quot;text&quot;, { x: margin.left, y: 12, class: &quot;wrc-label text-small&quot; }, `Worst path from ${result.startDate}`));
+        const d = result.path.map((p, i) => `${i ? "L" : "M"}${x(p.year).toFixed(1)},${y(p.balance).toFixed(1)}`).join(" ");
+        svg.appendChild(svgEl("path", { d, class: "wrc-line" }));
+        svg.appendChild(svgEl("text", { x: margin.left, y: height - 10, class: "wrc-label text-small" }, "Year 1"));
+        svg.appendChild(svgEl("text", { x: width - margin.right, y: height - 10, "text-anchor": "end", class: "wrc-label text-small" }, `Year ${result.path.length}`));
+        svg.appendChild(svgEl("text", { x: margin.left, y: 12, class: "wrc-label text-small" }, `Worst path from ${result.startDate}`));
       }
 
       function update() {
@@ -1085,16 +1074,16 @@ html&gt;body{padding:0}&lt;/style&gt;
         const fee = Number(els.fee.value) / 100;
         const stockWeight = Number(els.stock.value) / 100;
         const maxStart = annualReturns.length - years;
-        if (maxStart &lt; 0) {
+        if (maxStart < 0) {
           els.years.value = annualReturns.length;
           update();
           return;
         }
         const results = [];
-        for (let i = 0; i &lt;= maxStart; i += 1) results.push(simulate(i, years, initial, annualRate, fee, stockWeight));
-        const successes = results.filter(r =&gt; !r.failed).length;
-        const worst = results.reduce((a, b) =&gt; a.finalBalance &lt;= b.finalBalance ? a : b);
-        const worstDrawdown = results.reduce((a, b) =&gt; a.maxDrawdown &lt;= b.maxDrawdown ? a : b);
+        for (let i = 0; i <= maxStart; i += 1) results.push(simulate(i, years, initial, annualRate, fee, stockWeight));
+        const successes = results.filter(r => !r.failed).length;
+        const worst = results.reduce((a, b) => a.finalBalance <= b.finalBalance ? a : b);
+        const worstDrawdown = results.reduce((a, b) => a.maxDrawdown <= b.maxDrawdown ? a : b);
 
         els.rateLabel.textContent = `${Number(els.rate.value).toFixed(1)}%`;
         els.yearsLabel.textContent = `${years} years`;
@@ -1111,25 +1100,25 @@ html&gt;body{padding:0}&lt;/style&gt;
         drawPath(worst, initial);
       }
 
-      [&quot;input&quot;, &quot;change&quot;].forEach(eventName =&gt; {
-        [els.portfolio, els.rate, els.years, els.stock, els.fee].forEach(el =&gt; el.addEventListener(eventName, update));
+      ["input", "change"].forEach(eventName => {
+        [els.portfolio, els.rate, els.years, els.stock, els.fee].forEach(el => el.addEventListener(eventName, update));
       });
-      window.addEventListener(&quot;resize&quot;, update);
+      window.addEventListener("resize", update);
       update();
     })();
-  &lt;/script&gt;
-&lt;/div&gt;
+  </script>
+</div>
 
-&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-(() =&gt; {
+<script src="https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js"></script>
+<script src="https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js"></script>
+<script>
+(() => {
   if (window.FloatingUIDOM == null) {
     return;
   }
   const { autoUpdate, computePosition, flip, offset, shift, size } =
     window.FloatingUIDOM;
-  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipPlacements = new Set(["top", "right", "bottom", "left"]);
   const tooltipId = `codex-visualization-tooltip-${
     window.crypto?.randomUUID?.() ?? Date.now().toString(36)
   }`;
@@ -1144,30 +1133,30 @@ html&gt;body{padding:0}&lt;/style&gt;
   let positionRequest = 0;
   let skipDelayUntil = 0;
 
-  const getTrigger = (target) =&gt;
+  const getTrigger = (target) =>
     target?.nodeType === Node.ELEMENT_NODE
-      ? target.closest(&quot;[data-tooltip]&quot;)
+      ? target.closest("[data-tooltip]")
       : null;
-  const containsTarget = (trigger, target) =&gt;
-    target?.nodeType != null &amp;&amp; trigger.contains(target);
-  const getContent = (trigger) =&gt;
-    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
-  const getPlacement = (trigger) =&gt; {
-    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
-    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  const containsTarget = (trigger, target) =>
+    target?.nodeType != null && trigger.contains(target);
+  const getContent = (trigger) =>
+    trigger.getAttribute("data-tooltip")?.trim() ?? "";
+  const getPlacement = (trigger) => {
+    const placement = trigger.getAttribute("data-tooltip-placement");
+    return tooltipPlacements.has(placement) ? placement : "top";
   };
-  const getTooltip = () =&gt; {
+  const getTooltip = () => {
     if (tooltip == null) {
-      tooltip = document.createElement(&quot;div&quot;);
+      tooltip = document.createElement("div");
       tooltip.id = tooltipId;
-      tooltip.className = &quot;tooltip&quot;;
-      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+      tooltip.className = "tooltip";
+      tooltip.setAttribute("role", "tooltip");
     }
     return tooltip;
   };
-  const setDescribedBy = (trigger, described) =&gt; {
+  const setDescribedBy = (trigger, described) => {
     const ids = new Set(
-      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+      (trigger.getAttribute("aria-describedby") ?? "")
         .split(/\s+/)
         .filter(Boolean),
     );
@@ -1177,19 +1166,19 @@ html&gt;body{padding:0}&lt;/style&gt;
       ids.delete(tooltipId);
     }
     if (ids.size === 0) {
-      trigger.removeAttribute(&quot;aria-describedby&quot;);
+      trigger.removeAttribute("aria-describedby");
     } else {
-      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+      trigger.setAttribute("aria-describedby", [...ids].join(" "));
     }
   };
-  const clearOpenTimeout = () =&gt; {
+  const clearOpenTimeout = () => {
     if (openTimeout != null) {
       window.clearTimeout(openTimeout);
       openTimeout = null;
     }
     pendingTrigger = null;
   };
-  const closeTooltip = (activateSkipDelay = true) =&gt; {
+  const closeTooltip = (activateSkipDelay = true) => {
     clearOpenTimeout();
     positionRequest += 1;
     autoUpdateCleanup?.();
@@ -1204,7 +1193,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       skipDelayUntil = Date.now() + skipDelay;
     }
   };
-  const updatePosition = (trigger, floating) =&gt; {
+  const updatePosition = (trigger, floating) => {
     const request = ++positionRequest;
     void computePosition(trigger, floating, {
       middleware: [
@@ -1215,34 +1204,34 @@ html&gt;body{padding:0}&lt;/style&gt;
           padding: tooltipGap,
           apply({ availableHeight, availableWidth, elements }) {
             elements.floating.style.setProperty(
-              &quot;--tooltip-available-width&quot;,
+              "--tooltip-available-width",
               `${Math.max(0, availableWidth)}px`,
             );
             elements.floating.style.setProperty(
-              &quot;--tooltip-available-height&quot;,
+              "--tooltip-available-height",
               `${Math.max(0, availableHeight)}px`,
             );
           },
         }),
       ],
       placement: getPlacement(trigger),
-      strategy: &quot;fixed&quot;,
+      strategy: "fixed",
     })
-      .then(({ x, y }) =&gt; {
+      .then(({ x, y }) => {
         if (activeTrigger !== trigger || request !== positionRequest) {
           return;
         }
         const scale = window.devicePixelRatio || 1;
         floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
-        floating.style.visibility = &quot;visible&quot;;
+        floating.style.visibility = "visible";
       })
-      .catch(() =&gt; {
-        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+      .catch(() => {
+        if (activeTrigger === trigger && request === positionRequest) {
           closeTooltip(false);
         }
       });
   };
-  const openTooltip = (trigger) =&gt; {
+  const openTooltip = (trigger) => {
     const content = getContent(trigger);
     if (!trigger.isConnected || content.length === 0) {
       return;
@@ -1254,16 +1243,16 @@ html&gt;body{padding:0}&lt;/style&gt;
     closeTooltip();
     const floating = getTooltip();
     floating.textContent = content;
-    floating.style.visibility = &quot;hidden&quot;;
-    floating.style.transform = &quot;translate(0, 0)&quot;;
+    floating.style.visibility = "hidden";
+    floating.style.transform = "translate(0, 0)";
     document.body.appendChild(floating);
     activeTrigger = trigger;
     setDescribedBy(trigger, true);
-    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+    autoUpdateCleanup = autoUpdate(trigger, floating, () => {
       updatePosition(trigger, floating);
     });
   };
-  const requestOpen = (trigger, immediate = false) =&gt; {
+  const requestOpen = (trigger, immediate = false) => {
     if (
       getContent(trigger).length === 0 ||
       activeTrigger === trigger ||
@@ -1274,21 +1263,21 @@ html&gt;body{padding:0}&lt;/style&gt;
     clearOpenTimeout();
     pendingTrigger = trigger;
     const delay =
-      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+      immediate || activeTrigger != null || Date.now() < skipDelayUntil
         ? 0
         : hoverDelay;
     if (delay === 0) {
       openTooltip(trigger);
       return;
     }
-    openTimeout = window.setTimeout(() =&gt; {
+    openTimeout = window.setTimeout(() => {
       openTimeout = null;
       pendingTrigger = null;
       openTooltip(trigger);
     }, delay);
   };
-  const handlePointerOpen = (event) =&gt; {
-    if (event.pointerType === &quot;touch&quot;) {
+  const handlePointerOpen = (event) => {
+    if (event.pointerType === "touch") {
       return;
     }
     const trigger = getTrigger(event.target);
@@ -1297,7 +1286,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     }
     requestOpen(trigger);
   };
-  const handleLeave = (event) =&gt; {
+  const handleLeave = (event) => {
     const trigger = getTrigger(event.target);
     if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
       return;
@@ -1306,47 +1295,47 @@ html&gt;body{padding:0}&lt;/style&gt;
       closeTooltip();
     }
   };
-  const handleFocusIn = (event) =&gt; {
+  const handleFocusIn = (event) => {
     const trigger = getTrigger(event.target);
-    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+    if (trigger?.matches(":focus-visible")) {
       requestOpen(trigger, true);
     }
   };
-  const handleKeyDown = (event) =&gt; {
-    if (event.key === &quot;Escape&quot;) {
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
       closeTooltip();
     }
   };
-  const handleContextMenu = (event) =&gt; {
+  const handleContextMenu = (event) => {
     const trigger = getTrigger(event.target);
     if (activeTrigger === trigger || pendingTrigger === trigger) {
       closeTooltip();
     }
   };
-  const destroy = () =&gt; {
+  const destroy = () => {
     closeTooltip(false);
-    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
-    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
-    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
-    document.removeEventListener(&quot;focusout&quot;, handleLeave);
-    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
-    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    document.removeEventListener("pointerover", handlePointerOpen);
+    document.removeEventListener("pointerout", handleLeave);
+    document.removeEventListener("focusin", handleFocusIn);
+    document.removeEventListener("focusout", handleLeave);
+    document.removeEventListener("keydown", handleKeyDown);
+    document.removeEventListener("contextmenu", handleContextMenu);
     tooltip = null;
   };
 
-  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
-  document.addEventListener(&quot;pointerout&quot;, handleLeave);
-  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
-  document.addEventListener(&quot;focusout&quot;, handleLeave);
-  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
-  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
-  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+  document.addEventListener("pointerover", handlePointerOpen);
+  document.addEventListener("pointerout", handleLeave);
+  document.addEventListener("focusin", handleFocusIn);
+  document.addEventListener("focusout", handleLeave);
+  document.addEventListener("keydown", handleKeyDown);
+  document.addEventListener("contextmenu", handleContextMenu);
+  window.addEventListener("pagehide", destroy, { once: true });
 })();
-&lt;/script&gt;
-&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-(() =&gt; {
-  const initialize = () =&gt; {
+</script>
+<script id="codex-visualization-lucide" async src="https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js"></script>
+<script>
+(() => {
+  const initialize = () => {
     globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
   };
   if (globalThis.lucide != null) {
@@ -1354,13 +1343,10 @@ html&gt;body{padding:0}&lt;/style&gt;
     return;
   }
   document
-    .getElementById(&quot;codex-visualization-lucide&quot;)
-    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+    .getElementById("codex-visualization-lucide")
+    ?.addEventListener("load", initialize, { once: true });
 })();
-&lt;/script&gt;
+</script>
 
-&lt;/body&gt;
-&lt;/html&gt;
-"></iframe>
 </body>
 </html>
